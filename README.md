@@ -1,9 +1,20 @@
+// Basic Task Management System by Selena Villagomez and Delacey Cavin
+// 12-12-23
+// Adding, Deleting, and Listing Tasks Function
+// Used for Adding Tasks Needed to Be Done,
+// Deleting Tasks Finished or Not Needed,
+// And Listing the Remaining Tasks in Order
+// Functions for Adding, Deleting, and Listing Functions
+// by Selena Vlllagomez
+// Test running and Minor Debugging by Delacey Cavin
+
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-//constant integer for a max of 25 tasks
+// constant integer for a max of 25 tasks
+// variables by Selena Villagomez
 const int MAX_TASKS = 25;
 
 string tasks[MAX_TASKS];
@@ -12,6 +23,7 @@ int taskIDs[MAX_TASKS];
 int numTasks = 0;
 
 // function for adding new tasks
+// function by Selena Villagomez
 void addTask(const string& taskDescription) {
 	if (numTasks < MAX_TASKS) {
 		int taskID = numTasks + 1;
@@ -29,14 +41,16 @@ void addTask(const string& taskDescription) {
 }
 
 
-//function for deleting a task
+// function for deleting a task by ID number
+// function by Selena Villagomez
+// Minor Debugging by Delacey Cavin
 void deleteTask(int taskID) {
 	for (int i = 0; i < numTasks; ++i) {
 		if (taskIDs[i] == taskID) {
 			for (int j = i; j < numTasks - 1; ++j) {
 				tasks[j] = tasks[j + 1];
 				
-				taskIDs[j] = taskIDs[j + 1];
+				taskIDs[j] = taskIDs[j + 1 - 1];
 			}
 
 			numTasks--;
@@ -50,6 +64,7 @@ void deleteTask(int taskID) {
 }
 
 // function for listing the tasks in the order of ID number
+// function by Selena Villagomez
 void listTasks() {
 	if (numTasks > 0) {
 		cout << "\n>> Listing Tasks:" << endl;
@@ -62,7 +77,10 @@ void listTasks() {
 	}
 }
 
-
+//main function to display added, deleted, and listed tasks
+//function coding by Selena Villagomez
+//Tasks 7 - 27 by Delacey Cavin
+//Deleted tasks by Selena Villagomez and Delacey Cavin
 int main() {
 	addTask("Individual Project");
 	addTask("Group Project");
@@ -73,26 +91,30 @@ int main() {
 	addTask("Basic Web Design Chapter 10");
 	addTask("Physics 105 Chapter 11");
 	addTask("Physics 105 Final Exam");
-	addTask("Basic Web Design Final Exam");
-	addTask("Feed My Cat");
-	addTask("Complete Laundry");
-	addTask("Purchase RAM Sticks for Current Laptop");
-	addTask("Find New Laptop to Prepare for Future");
-	addTask("Install Unity on Current Laptop");
-	addTask("Install Unreal Engine on Current Laptop");
-	addTask("Draw Prototype Characters for Future Designs");
-	addTask("Register for Spring Semester");
-	addTask("Apply to Universities for Transfer 24-25 Year");
 	addTask("Take Written Driving Exam to Renew Permit");
-	
+	addTask("Feed My Cat");
+	addTask("Basic Web Design Final Exam");
+	addTask("Register for Spring Semester");
+	addTask("Purchase RAM Sticks for Current Laptop");
+	addTask("Find a New Laptop to Own");
+	addTask("Create Custom Sonic Adventure 2 Shoes");
+	addTask("Draw Concept Character Designs");
+	addTask("Install 2D Unity Engine");
+	addTask("Install Unreal Engine 4");
+	addTask("Fold Clean Laundry from the Dryer");
+	addTask("Replace Wheels on Skateboard");
+	addTask("Japanese Kanji for 5 Minutes");
+	addTask("Buy 1TB SSD");
+	addTask("Buy 64GB SD Card");
+	addTask("Weightlift Session");
+	addTask("Prepare Work Attire");
+	addTask("Moisturize Hair");
 
 	listTasks();
 
 	deleteTask(4);
 
-	deleteTask(9);
-
-	deleteTask(13);
+	deleteTask(7);
 
 	listTasks();
 
